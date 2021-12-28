@@ -1,5 +1,7 @@
 <template>
-<div>标签页面</div>
+  <div>标签页面
+    <Nav/>
+  </div>
 </template>
 
 <script>
