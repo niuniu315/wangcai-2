@@ -1,15 +1,15 @@
 <template>
-  <div>标签页面
-    <Nav/>
-  </div>
+  <Layout>
+    <p>标签页面</p>
+  </Layout>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "Labels"
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

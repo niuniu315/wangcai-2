@@ -1,17 +1,15 @@
 <template>
-  <div>统计页面
-
-    <Nav/>
-  </div>
-
+  <Layout>
+    <p>统计页面</p>
+  </Layout>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "Statistics"
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

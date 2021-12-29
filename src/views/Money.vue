@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <div>记账页面</div>
-    <Nav/>
-  </div>
-
+  <Layout>
+    <p>记账页面</p>
+  </Layout>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "Money"
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>
