@@ -1,34 +1,19 @@
 <template>
-<div>
-<!-- 在这里展示指定路由的内容 -->
-  <router-view/>
-</div>
+  <div>
+    <!-- 在这里展示指定路由的内容 -->
+    <router-view/>
+  </div>
 </template>
 
 <style lang="scss">
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+@import "~@/assets/style/helper.scss";
+@import "~@/assets/style/reset.scss";
+
+body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  color: #333;
+  font-family: $font-hei;
+  line-height: 1.5;
 }
 </style>
