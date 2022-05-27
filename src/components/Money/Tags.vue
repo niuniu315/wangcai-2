@@ -8,25 +8,8 @@
       <li>食</li>
       <li>住</li>
       <li>行</li>
-      <li>衣</li>
-      <li>食</li>
-      <li>住</li>
-      <li>行</li>
-      <li>衣</li>
-      <li>食</li>
-      <li>住</li>
-      <li>行</li>
-      <li>衣</li>
-      <li>食</li>
-      <li>住</li>
-      <li>行</li>
-      <li>衣</li>
-      <li>食</li>
-      <li>住</li>
-      <li>行</li>
     </ul>
   </div>
-
 </template>
 
 <script lang="ts">
@@ -42,9 +25,11 @@ export default {
   flex-grow: 1;
   display: flex;
   flex-direction: column-reverse;
+
   > .current {
     display: flex;
     flex-wrap: wrap;
+
     > li {
       background: #d9d9d9;
       $h: 24px;
@@ -56,8 +41,10 @@ export default {
       margin-top: 4px;
     }
   }
+
   > .new {
     padding-top: 16px;
+
     button {
       background: transparent;
       border: none;
