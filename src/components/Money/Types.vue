@@ -10,26 +10,18 @@
     </ul>
   </div>
 </template>
-<!--使用JS写Vue组件-->
-<script>
-export default {
-  name: 'Types',
-  props: ['xxx'],
-  data() {
-    return {
-      type: '-' // '-'表示支出，'+'表示收入
+<script lang="ts">
+import Component from 'vue-class-component';
+import Vue from 'vue';
+
+@Component
+export default class Types extends Vue {
+  type = '-'; // '-'表示支出，'+'表示收入
+  selectType(type: string) { // type 只能是 '-' 和 '+' 中的一个
+    if (type !== '-' && type !== '+') {
+      throw new Error('type is unknown');
     }
-  },
-  mounted() {
-    console.log(this.xxx)
-  },
-  methods: {
-    selectType(type) { // type 只能是 '-' 和 '+' 中的一个
-      if (type !== '-' && type !== '+') {
-        throw new Error('type is unknown')
-      }
-      this.type = type
-    }
+    this.type = type;
   }
 }
 </script>
@@ -40,6 +32,7 @@ export default {
   display: flex;
   text-align: center;
   font-size: 24px;
+
   > li {
     width: 50%;
     height: 64px;
@@ -47,6 +40,7 @@ export default {
     justify-content: center;
     align-items: center;
     position: relative;
+    //&表示当前元素
     &.selected::after {
       content: '';
       position: absolute;
