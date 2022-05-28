@@ -10,7 +10,7 @@
     </ul>
   </div>
 </template>
-
+<!--使用JS写Vue组件-->
 <script>
 export default {
   name: 'Types',
