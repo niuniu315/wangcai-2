@@ -3,18 +3,19 @@
     <div class="new">
       <button>新增标签</button>
     </div>
-    <ul class="current">
-      <li>衣</li>
-      <li>食</li>
-      <li>住</li>
-      <li>行</li>
+    <ul class="tagsul">
+      <li v-for="tag in dataSource" :key="tag">{{tag}}</li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
-export default {
-  name: 'Tags'
+import {Component, Prop} from 'vue-property-decorator';
+import Vue from 'vue';
+
+@Component
+export default class Tags extends Vue{
+  @Prop() dataSource: string[] | undefined;
 };
 </script>
 
@@ -26,7 +27,7 @@ export default {
   display: flex;
   flex-direction: column-reverse;
 
-  > .current {
+  > .tagsul {
     display: flex;
     flex-wrap: wrap;
 
