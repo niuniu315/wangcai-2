@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <div class="new">
-      <button>新增标签</button>
+      <button @click="add">新增标签</button>
     </div>
     <ul class="tagsul">
       <li v-for="tag in dataSource" :key="tag"
@@ -31,6 +31,14 @@ export default class Tags extends Vue {
     }
   }
 
+  add() {
+    const name = window.prompt('请输入需要添加的标签');
+    if (name === '') {
+      window.alert('不能输入空的标签');
+    } else if (this.dataSource) {
+      this.$emit('update:dataSource', [...this.dataSource, name]);
+    }
+  }
 };
 </script>
 
@@ -56,8 +64,9 @@ export default class Tags extends Vue {
       padding: 0 16px;
       margin-right: 12px;
       margin-top: 4px;
+
       &.selected {
-        background: darken($bg,50%);
+        background: darken($bg, 50%);
         color: white;
       }
     }
