@@ -61,6 +61,7 @@ export default class NumberPad extends Vue {
   ok() {
     // 监听获取output value值
     this.$emit('update:value', this.output);
+    this.$emit('submit', this.output);
   }
 };
 </script>
