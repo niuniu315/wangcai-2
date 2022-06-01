@@ -51,13 +51,14 @@ export default class Money extends Vue {
   }
 
   saveRecord() {
+    // 深拷贝recordList赋值给record
     const record2 = JSON.parse(JSON.stringify(this.record));
     this.recordList.push(record2);
   }
 
   @Watch('recordList')
   onRecordListChange() {
-    window.localStorage.setItem('recordList',JSON.stringify(this.recordList));
+    window.localStorage.setItem('recordList', JSON.stringify(this.recordList));
   }
 
 };
