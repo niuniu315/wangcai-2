@@ -5,7 +5,7 @@
     <Notes @update:value="onUpdateNotes"/>
     <Tags :data-source.sync="tags"
           @update:value="onUpdateTags"/>
-    {{recordList}}
+    {{ recordList }}
   </Layout>
 </template>
 
@@ -16,17 +16,10 @@ import Notes from '@/components/money/Notes.vue';
 import Tags from '@/components/money/Tags.vue';
 import {Component, Watch} from 'vue-property-decorator';
 import Vue from 'vue';
-const model = require('@/model.js').default
-console.log(model);
-const recordList: RecordType[] = model.fetch()
+import model from '@/model';
 
-type RecordType = {
-  tags: string[]
-  notes: string
-  type: string
-  amount: number
-  createdTime?: Date // ?问号表示你管我有没有这个类型
-}
+const recordList = model.fetch();
+
 @Component({
   components: {Tags, Notes, Types, NumberPad}
 })
@@ -50,13 +43,11 @@ export default class Money extends Vue {
   }
 
   onUpdateAmount(value: string) {
-    this.record.amount = parseFloat(value);
-    // 将类型转换成string
+    this.record.amount = parseFloat(value); // 将类型转换成string
   }
 
   saveRecord() {
-    // 深拷贝recordList赋值给record
-    const record2 = JSON.parse(JSON.stringify(this.record));
+    const record2: RecordType = model.clone(this.record);// 深拷贝recordList赋值给record
     record2.createdTime = new Date();
     this.recordList.push(record2);
   }
