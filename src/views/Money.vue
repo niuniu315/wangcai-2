@@ -16,9 +16,9 @@ import Notes from '@/components/money/Notes.vue';
 import Tags from '@/components/money/Tags.vue';
 import {Component, Watch} from 'vue-property-decorator';
 import Vue from 'vue';
-import model from '@/model';
+import recordListModel from '@/models/recordListModel';
 
-const recordList = model.fetch();
+const recordList = recordListModel.fetch();
 
 @Component({
   components: {Tags, Notes, Types, NumberPad}
@@ -47,7 +47,7 @@ export default class Money extends Vue {
   }
 
   saveRecord() {
-    const record2: RecordType = model.clone(this.record);// 深拷贝recordList赋值给record
+    const record2: RecordType = recordListModel.clone(this.record);// 深拷贝recordList赋值给record
     record2.createdTime = new Date();
     this.recordList.push(record2);
   }
@@ -66,4 +66,5 @@ export default class Money extends Vue {
   flex-direction: column-reverse;
 }
 </style>
+
 
