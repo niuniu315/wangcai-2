@@ -17,14 +17,16 @@ import Tags from '@/components/money/Tags.vue';
 import {Component, Watch} from 'vue-property-decorator';
 import Vue from 'vue';
 import recordListModel from '@/models/recordListModel';
+import tagListModel from '@/models/tagListModel';
 
 const recordList = recordListModel.fetch();
+const tagList = tagListModel.fetch();
 
 @Component({
   components: {Tags, Notes, Types, NumberPad}
 })
 export default class Money extends Vue {
-  tags = ['衣', '食', '住', '行'];
+  tags = tagList
   recordList: RecordType[] = recordList;
   record: RecordType = {
     tags: [], notes: '', type: '-', amount: 0
@@ -54,7 +56,7 @@ export default class Money extends Vue {
 
   @Watch('recordList')
   onRecordListChange() {
-    recordListModel.save(this.recordList)
+    recordListModel.save(this.recordList);
   }
 
 };
