@@ -5,7 +5,7 @@
     <Notes @update:value="onUpdateNotes"/>
     <Tags :data-source.sync="tags"
           @update:value="onUpdateTags"/>
-    {{ recordList }}
+    {{recordList}}
   </Layout>
 </template>
 
@@ -16,21 +16,24 @@ import Notes from '@/components/money/Notes.vue';
 import Tags from '@/components/money/Tags.vue';
 import {Component, Watch} from 'vue-property-decorator';
 import Vue from 'vue';
+const model = require('@/model.js').default
+console.log(model);
+const recordList: RecordType[] = model.fetch()
 
-type Record = {
+type RecordType = {
   tags: string[]
   notes: string
   type: string
   amount: number
-  createdTime: Date
+  createdTime?: Date // ?问号表示你管我有没有这个类型
 }
 @Component({
   components: {Tags, Notes, Types, NumberPad}
 })
 export default class Money extends Vue {
   tags = ['衣', '食', '住', '行'];
-  recordList: Record[] = JSON.parse(window.localStorage.getItem('recordList') || '[]');
-  record: Record = {
+  recordList: RecordType[] = recordList;
+  record: RecordType = {
     tags: [], notes: '', type: '-', amount: 0
   };
 
