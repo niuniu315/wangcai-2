@@ -3,7 +3,7 @@
     <div class="new">
       <button @click="add">新增标签</button>
     </div>
-    <ul class="tagsul">
+    <ul class="current">
       <li v-for="tag in dataSource" :key="tag"
           :class="{selected: selectedTags.indexOf(tag) >= 0}"
           @click="button(tag)"
@@ -52,7 +52,7 @@ export default class Tags extends Vue {
   display: flex;
   flex-direction: column-reverse;
 
-  > .tagsul {
+  > .current {
     display: flex;
     flex-wrap: wrap;
 
