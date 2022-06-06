@@ -1,8 +1,11 @@
 <template>
   <Layout class-prefix="layout">
-    <NumberPad @update:value="onUpdateAmount" @submit="saveRecord"/>
+    <NumberPad @update:value="onUpdateAmount"
+               @submit="saveRecord"/>
     <Types @update:value="onUpdateType"/>
-    <Notes @update:value="onUpdateNotes"/>
+    <Notes field-name="备注"
+           placeholder="请输入备注"
+           @update:value="onUpdateNotes"/>
     <Tags :data-source.sync="tags"
           @update:value="onUpdateTags"/>
     {{ recordList }}
@@ -26,7 +29,7 @@ const tagList = tagListModel.fetch();
   components: {Tags, Notes, Types, NumberPad}
 })
 export default class Money extends Vue {
-  tags = tagList
+  tags = tagList;
   recordList: RecordType[] = recordList;
   record: RecordType = {
     tags: [], notes: '', type: '-', amount: 0
