@@ -7,7 +7,7 @@
       <!--      tip:多加一个标签好平均布局-->
     </div>
     <div class="form-wrapper">
-      <FormItem field-name="标签名" placeholder="请输入标签名"/>
+      <FormItem field-name="标签名" :value="tag.name" placeholder="请输入标签名"/>
     </div>
     <div class="button-wrapper">
       <Button>删除标签</Button>
@@ -32,7 +32,7 @@ export default class EditLabel extends Vue {
     const tags = tagListModel.data;
     const tag = tags.filter(t => t.id === id)[0]; //获取到的是个数组  数组里面的第0个
     if (tag) {
-
+      this.tag = tag;
     } else {
       this.$router.replace('/404');
     }

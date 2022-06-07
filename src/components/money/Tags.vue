@@ -6,8 +6,7 @@
     <ul class="current">
       <li v-for="tag in dataSource" :key="tag.id"
           :class="{selected: selectedTags.indexOf(tag) >= 0}"
-          @click="button(tag.name)"
-      >{{ tag }}
+          @click="toggle(tag)">{{tag.name}}
       </li>
     </ul>
   </div>
@@ -22,7 +21,7 @@ export default class Tags extends Vue {
   @Prop() dataSource: string[] | undefined;
   selectedTags: string[] = [];
 
-  button(tag: string) {
+  toggle(tag: string) {
     const index = this.selectedTags.indexOf(tag);
     if (index >= 0) {
       this.selectedTags.splice(index, 1);
