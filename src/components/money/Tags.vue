@@ -30,7 +30,7 @@ export default class Tags extends Vue {
       this.selectedTags.push(tag);
     }
     // 监听selectedTags拿到value值
-    this.$emit('update:value', this.selectedTags)
+    this.$emit('update:value', this.selectedTags);
   }
 
   add() {
@@ -51,6 +51,7 @@ export default class Tags extends Vue {
   flex-grow: 1;
   display: flex;
   flex-direction: column-reverse;
+  background: white;
 
   > .current {
     display: flex;
