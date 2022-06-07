@@ -14,7 +14,7 @@ import Vue from 'vue';
 import {Component, Prop, Watch} from 'vue-property-decorator';
 
 @Component
-export default class Notes extends Vue {
+export default class FormItem extends Vue {
   value = '';
   @Prop({required: true}) fieldName!: string;  // 必须有一个字符串  别管我有没有默认值
   @Prop({required: true}) placeholder!: string;  // 必须有一个字符串  别管我有没有默认值
