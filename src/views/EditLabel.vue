@@ -1,16 +1,19 @@
 <template>
   <Layout>
     <div class="navBar">
-      <Icon class="leftIcon" name="left"/>
+      <Icon class="leftIcon" name="left" @click="goBack"/>
       <span class="title">编辑标签</span>
       <span class="rightIcon"></span>
       <!--      tip:多加一个标签好平均布局-->
     </div>
     <div class="form-wrapper">
-      <FormItem field-name="标签名" :value="tag.name" placeholder="请输入标签名"/>
+      <FormItem field-name="标签名"
+                placeholder="请输入标签名"
+                :value="tag.name"
+                @update:value="update"/>
     </div>
     <div class="button-wrapper">
-      <Button>删除标签</Button>
+      <Button @click="remove">删除标签</Button>
     </div>
   </Layout>
 </template>
@@ -26,15 +29,34 @@ import Button from '@/components/Button.vue';
   components: {Button, FormItem}
 })
 export default class EditLabel extends Vue {
+  tag?: { id: string, name: string } = undefined;
+
   created() {
     tagListModel.fetch();
     const id = this.$route.params.id;
     const tags = tagListModel.data;
-    const tag = tags.filter(t => t.id === id)[0]; //获取到的是个数组  数组里面的第0个
+    const tag = tags.filter(t => t.id === id)[0]; //获取到的是个数组  数组里面的第1个
     if (tag) {
       this.tag = tag;
     } else {
       this.$router.replace('/404');
+    }
+  }
+
+  goBack() {
+    console.log('1');
+    this.$router.back();
+  }
+
+  update(name: string) {
+    if (this.tag) {
+      tagListModel.update(this.tag.id, name);
+    }
+  }
+
+  remove() {
+    if (this.tag) {
+      tagListModel.remove(this.tag.id);
     }
   }
 }
