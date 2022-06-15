@@ -5,14 +5,14 @@
       <input type="text"
              :value="value"
              @input="onValueChanged($event.target.value)"
-             :placeholder="this.placeholder">
+             :placeholder="placeholder">
     </label>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import {Component, Prop, Watch} from 'vue-property-decorator';
+import {Component, Prop} from 'vue-property-decorator';
 
 @Component
 export default class FormItem extends Vue {
@@ -20,7 +20,7 @@ export default class FormItem extends Vue {
   @Prop({required: true}) fieldName!: string;  // 必须有一个字符串  别管我有没有默认值
   @Prop({required: true}) placeholder!: string;
 
-  @Watch('value')  // 监听获取value值
+  // 监听获取value值
   onValueChanged(value: string) {
     this.$emit('update:value', value);
   }
