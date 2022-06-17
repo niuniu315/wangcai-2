@@ -1,8 +1,12 @@
+import clone from '@/lib/clone';
+
 const localStorageKeyName = 'recordList';
 const recordListModel = {
   data: [] as RecordType[],
-  clone(data: RecordType | RecordType[]) {
-    return JSON.parse(JSON.stringify(data));
+  create(record: RecordType) {
+    const record2: RecordType = clone(record);// 深拷贝recordList赋值给record
+    record2.createdTime = new Date();
+    this.data.push(record2);
   },
   fetch() {
     this.data = JSON.parse(window.localStorage.getItem('localStorageKeyName') || '[]') as RecordType[]; // 强制类型是个RecordType[])
