@@ -15,6 +15,7 @@ type TagListModel = {
 }
 const tagListModel: TagListModel = {
   data: [],
+  // 获取数据
   fetch() {
     this.data = JSON.parse(window.localStorage.getItem(localStorageLeyName) || '[]');
     return this.data;
