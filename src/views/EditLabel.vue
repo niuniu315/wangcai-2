@@ -44,7 +44,6 @@ export default class EditLabel extends Vue {
   }
 
   goBack() {
-    console.log('1');
     this.$router.back();
   }
 
@@ -57,9 +56,9 @@ export default class EditLabel extends Vue {
   remove() {
     if (this.tag) {
       if (tagListModel.remove(this.tag.id)) {
-        this.$router.back()
-      }else {
-        window.alert('删除失败')
+        this.$router.back();
+      } else {
+        window.alert('删除失败');
       }
     }
   }
