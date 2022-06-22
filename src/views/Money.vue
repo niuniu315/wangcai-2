@@ -8,7 +8,7 @@
                 placeholder="请输入备注"
                 @update:value="onUpdateNotes"/>
     </div>
-    <Tags/>
+    <Tags @update:value="onUpdateTags"/>
   </Layout>
 </template>
 
@@ -29,6 +29,10 @@ export default class Money extends Vue {
   record: RecordType = {
     tags: [], notes: '', type: '-', amount: 0
   };
+
+  onUpdateTags(value: string[]) {
+    this.record.tags = value;
+  }
 
   onUpdateNotes(value: string) {
     this.record.notes = value;

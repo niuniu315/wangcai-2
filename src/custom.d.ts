@@ -1,5 +1,5 @@
 type RecordType = {
-  tags: string[]
+  tags: string[] | string
   notes: string
   type: string
   amount: number
@@ -19,11 +19,6 @@ type TagListModel = {
 }
 
 interface Window {
-  tagList: Tag[];
-  createTag: (name: string) => void;
-  findTag: (id: string) => Tag | undefined;
-  removeTag: (id: string) => boolean;
-  updateTag: (id: string, name: string) => 'success' | 'notfound' | 'duplicated'
-  recordList: RecordType[];
-  createRecord: (record: RecordType) => void;
+
+
 }
