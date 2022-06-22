@@ -20,9 +20,6 @@ import FormItem from '@/components/money/FormItem.vue';
 import Tags from '@/components/money/Tags.vue';
 import {Component} from 'vue-property-decorator';
 import Vue from 'vue';
-import recordListModel from '@/models/recordListModel';
-
-const recordList = recordListModel.fetch();
 
 @Component({
   components: {Tags, FormItem, Types, NumberPad}
