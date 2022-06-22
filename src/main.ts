@@ -7,6 +7,7 @@ import Nav from '@/components/Nav.vue';
 import Layout from '@/components/Layout.vue';
 import Icon from '@/components/Icon.vue';
 import tagListModel from '@/models/tagListModel';
+import recordListModel from '@/models/recordListModel';
 
 Vue.config.productionTip = false;
 
@@ -32,6 +33,10 @@ window.removeTag = (id: string) => {
 window.updateTag = (id: string, name: string) => {
   return tagListModel.update(id, name);
 };
+
+window.recordList = recordListModel.fetch();
+window.createRecord = (record: RecordType) => recordListModel.create(record);
+
 
 new Vue({
   router,
