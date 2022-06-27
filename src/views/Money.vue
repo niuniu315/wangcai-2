@@ -19,7 +19,6 @@ import FormItem from '@/components/money/FormItem.vue';
 import Tags from '@/components/money/Tags.vue';
 import {Component} from 'vue-property-decorator';
 import Vue from 'vue';
-import store from '@/store/index';
 
 @Component({
   components: {Tags, FormItem, Types, NumberPad}
@@ -61,15 +60,16 @@ export default class Money extends Vue {
 </script>
 
 <style lang="scss">
-.layout-content {
-  display: flex;
-  flex-direction: column-reverse;
-}
+::v-deep .type-tabs-item {
+  background: white;
 
-.notes {
-  padding: 12px 0;
-  background: #f5f5f5;
+  &.selected {
+    background: #C4C4C4;
 
+    &::after {
+      display: none;
+    }
+  }
 }
 </style>
 
