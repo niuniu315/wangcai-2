@@ -59,16 +59,13 @@ export default class Money extends Vue {
 </script>
 
 <style lang="scss">
-::v-deep .type-tabs-item {
-  background: white;
+.layout-content {
+  display: flex;
+  flex-direction: column-reverse;
+}
 
-  &.selected {
-    background: #C4C4C4;
-
-    &::after {
-      display: none;
-    }
-  }
+.notes {
+  padding: 12px 0;
 }
 </style>
 
