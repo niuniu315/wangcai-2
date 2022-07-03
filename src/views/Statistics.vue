@@ -1,7 +1,6 @@
 <template>
   <Layout>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
-    <Tabs class-prefix="interval" :data-source="intervalList" :value.sync="interval"/>
     <div>
       <ol>
         <li v-for="(group,index) in groupedList" :key="index">
@@ -24,7 +23,6 @@
 import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
 import Tabs from '@/components/money/Tabs.vue';
-import intervalList from '@/constants/intervalList';
 import recordTypeList from '@/constants/recordTypeList';
 import dayjs from 'dayjs';
 
@@ -76,7 +74,6 @@ export default class Statistics extends Vue {
 
   type = '-';
   interval = 'day';
-  intervalList = intervalList;
   recordTypeList = recordTypeList;
 }
 </script>
