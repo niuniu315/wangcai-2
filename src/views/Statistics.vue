@@ -4,7 +4,7 @@
     <Tabs class-prefix="interval" :data-source="intervalList" :value.sync="interval"/>
     <div>
       <ol>
-        <li v-for="(group,index) in result" :key="index">
+        <li v-for="(group,index) in groupedList" :key="index">
           <h3 class="title">{{ beautify(group.title) }}</h3>
           <ol>
             <li v-for="item in group.items" :key="item.id"
@@ -57,7 +57,7 @@ export default class Statistics extends Vue {
   }
 
 
-  get result() {
+  get groupedList() {
     const {recordList} = this;
     type HashTableValue = { title: string, items: RecordType[] }
     const hashTable: { [key: string]: HashTableValue } = {};

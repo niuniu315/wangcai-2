@@ -21,11 +21,12 @@
 </template>
 
 <script lang="ts">
-import {Component} from 'vue-property-decorator';
+import {Component, Prop} from 'vue-property-decorator';
 import Vue from 'vue';
 
 @Component
 export default class NumberPad extends Vue {
+  @Prop(Number) readonly value!: number;
   output: string = '0';
 
   inputContent(event: MouseEvent) {
@@ -60,8 +61,9 @@ export default class NumberPad extends Vue {
 
   ok() {
     // 监听获取output value值
-    this.$emit('update:value', this.output);
-    this.$emit('submit', this.output);
+    const number = parseFloat(this.output);
+    this.$emit('update:value', number);
+    this.$emit('submit', number);
     this.output = '0';
   }
 };
