@@ -33,7 +33,7 @@ import clone from '@/lib/clone';
 })
 export default class Statistics extends Vue {
   tagString(tags: Tag[]) {
-    return tags.length === 0 ? '无' : tags.join(',');
+    return tags.length === 0 ? '无' : tags.map(t => t.name).join(',');
   }
 
   beautify(string: string) {
@@ -66,11 +66,10 @@ export default class Statistics extends Vue {
 // }
   get groupedList() {
     const {recordList} = this;
-    if (recordList.length === 0) {return [];}  // 判断有无recordList数据，如果无，return[]
     const newList = clone(recordList)
         .filter(r => r.type === this.type)
         .sort((a, b) => dayjs(b.createdTime).valueOf() - dayjs(a.createdTime).valueOf());
-
+    if (newList.length === 0) {return [];}  // 判断有无recordList数据，如果无，return[]
     type Result = { title: string, total?: number, items: RecordType[] }[]
 
     const result: Result = [{title: dayjs(newList[0].createdTime).format('YYYY-MM-DD'), items: [newList[0]]}];

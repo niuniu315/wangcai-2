@@ -9,7 +9,7 @@
                 placeholder="请输入备注"
                 @update:value="onUpdateNotes"/>
     </div>
-    <Tags/>
+    <Tags @update:value="record.tags = $event"/>
   </Layout>
 </template>
 
