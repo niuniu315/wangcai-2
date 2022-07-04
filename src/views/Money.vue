@@ -48,6 +48,9 @@ export default class Money extends Vue {
   }
 
   saveRecord() {
+    if (!this.record.tags || this.record.tags.length === 0) {
+      return window.alert('请至少选择一个标签');
+    }
     this.$store.commit('createRecord', this.record);
   }
 
@@ -55,7 +58,7 @@ export default class Money extends Vue {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .layout-content  {
+::v-deep .layout-content {
   display: flex;
   flex-direction: column-reverse;
 }
