@@ -2,7 +2,7 @@
   <Layout>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
     <div>
-      <ol>
+      <ol v-if="groupedList.length > 0">
         <li v-for="(group,index) in groupedList" :key="index">
           <h3 class="title">{{ beautify(group.title) }}
             <span>￥{{ group.total }}</span>
@@ -16,6 +16,7 @@
           </ol>
         </li>
       </ol>
+      <div v-else class="noResult">无记账记录</div>
     </div>
   </Layout>
 </template>
@@ -33,7 +34,7 @@ import clone from '@/lib/clone';
 })
 export default class Statistics extends Vue {
   tagString(tags: Tag[]) {
-    return tags.length === 0 ? '无' : tags.map(t => t.name).join(',');
+    return tags.length === 0 ? '无' : tags.map(t => t.name).join('，');
   }
 
   beautify(string: string) {
@@ -143,5 +144,10 @@ export default class Statistics extends Vue {
   margin-right: auto;
   margin-left: 16px;
   color: #999;
+}
+
+.noResult {
+  padding: 16px;
+  text-align: center;
 }
 </style>
