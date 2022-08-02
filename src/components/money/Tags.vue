@@ -1,8 +1,8 @@
 <template>
   <div class="tags">
-    <div class="new">
-      <button @click="addTag">新增标签</button>
-    </div>
+<!--    <div class="new">-->
+<!--      <button @click="addTag">新增标签</button>-->
+<!--    </div>-->
     <ul class="current">
       <li v-for="tag in tagList" :key="tag.id"
           :class="{selected: selectedTags.indexOf(tag) >= 0}"
@@ -48,9 +48,9 @@ export default class Tags extends mixins(TagHelper) {
 .tags {
   font-size: 14px;
   padding: 16px;
+  //剩余空间
   flex-grow: 1;
   display: flex;
-  flex-direction: column-reverse;
   background: white;
 
   > .current {
@@ -62,7 +62,7 @@ export default class Tags extends mixins(TagHelper) {
       $h: 24px;
       border-radius: 12px;
       padding: 0 16px;
-      margin-right: 12px;
+      margin-right: 10px;
       margin-top: 4px;
       display: flex;
       flex-direction: column;
