@@ -39,11 +39,11 @@ export default class Tabs extends Vue {
 
 <style lang="scss" scoped>
 .tabs {
-  background: #96a48b;
   display: flex;
   text-align: center;
-  font-size: 24px;
-
+  font-size: 16px;
+  width: 120px;
+  margin: 0 auto;
   &-item {
     width: 50%;
     height: 64px;
@@ -63,4 +63,5 @@ export default class Tabs extends Vue {
     }
   }
 }
+
 </style>

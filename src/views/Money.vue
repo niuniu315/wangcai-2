@@ -2,14 +2,20 @@
   <Layout class-prefix="layout">
     <NumberPad @update:value="onUpdateAmount"
                @submit="saveRecord"/>
-    <Tabs :data-source="recordTypeList"
-          :value.sync="record.type"/>
     <div class="notes">
       <FormItem field-name="备注"
                 placeholder="请输入备注"
                 :value.sync="record.notes"/>
     </div>
     <Tags @update:value="record.tags = $event"/>
+    <div class="clearfix tabss" >
+      <div class="tabs-a"></div>
+      <Tabs :data-source="recordTypeList"
+            :value.sync="record.type"/>
+      <router-link to="/labels">
+        <Icon class="add" name="add"/>
+      </router-link>
+    </div>
   </Layout>
 </template>
 
@@ -72,6 +78,25 @@ export default class Money extends Vue {
 
 .notes {
   padding: 12px 0;
+}
+.tabs-a{
+  width: 20px;
+}
+.tabss{
+  background: white;
+  display: flex;
+  justify-content: center;
+}
+a >.icon{
+  background: #333333;
+  color: white;
+  border-radius: 50%;
+  position: relative;
+  top: 21px;
+  right: 10px;
+  float: right;
+  width: 24px;
+  height: 24px;
 }
 </style>
 

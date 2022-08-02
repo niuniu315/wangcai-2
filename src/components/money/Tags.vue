@@ -7,7 +7,7 @@
       <li v-for="tag in tagList" :key="tag.id"
           :class="{selected: selectedTags.indexOf(tag) >= 0}"
           @click="toggle(tag)">
-        <Icon name="交通" :class="selected"/>
+        <Icon name="交通" ></icon>
         {{ tag.name }}
       </li>
     </ul>
@@ -46,7 +46,6 @@ export default class Tags extends mixins(TagHelper) {
 
 <style lang="scss" scoped>
 .tags {
-  border: 1px solid red;
   font-size: 14px;
   padding: 16px;
   flex-grow: 1;
