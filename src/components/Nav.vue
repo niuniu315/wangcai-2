@@ -28,6 +28,8 @@ nav {
   display: flex;
   @extend %outerShadow;
   font-size: 12px;
+  background: #f5f5f5;
+
   > .item {
     padding: 3px 0;
     width: 33.33333%;
@@ -35,12 +37,15 @@ nav {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
     .icon {
       width: 24px;
       height: 24px;
     }
-  }> .item.selected{
-     color: $color-highlight;
-   }
+  }
+
+  > .item.selected {
+    color: $color-highlight;
+  }
 }
 </style>

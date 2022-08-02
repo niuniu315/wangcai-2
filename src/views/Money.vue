@@ -35,9 +35,9 @@ export default class Money extends Vue {
     tags: [], notes: '', type: '-', amount: 0
   };
 
-  onUpdateNotes(value: string) {
-    this.record.notes = value;
-  }
+  // onUpdateNotes(value: string) {
+  //   this.record.notes = value;
+  // }
 
   onUpdateAmount(value: string) {
     this.record.amount = parseFloat(value); // 将类型转换成string
@@ -48,10 +48,13 @@ export default class Money extends Vue {
   }
 
   saveRecord() {
+    this.$store.commit('createRecord', this.record);
     if (!this.record.tags || this.record.tags.length === 0) {
       return window.alert('请至少选择一个标签');
     }
-    this.$store.commit('createRecord', this.record);
+    if (this.record.amount === 0) {
+      return window.alert('请输入金额');
+    }
     if (this.$store.state.createRecordError === null) {
       window.alert('已保存');
     }

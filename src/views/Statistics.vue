@@ -10,7 +10,7 @@
           <ol>
             <li v-for="item in group.items" :key="item.id" class="record">
               <span>{{ tagString(item.tags) }}</span>
-              <span class="notes">备注:{{ item.notes }}</span>
+              <span class="notes"><strong>备注:</strong> {{ item.notes }}</span>
               <span>￥{{ item.amount }} </span>
             </li>
           </ol>
@@ -99,6 +99,7 @@ export default class Statistics extends Vue {
   }
 
   type = '-';
+  //间隔
   interval = 'day';
   recordTypeList = recordTypeList;
 }
