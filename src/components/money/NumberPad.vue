@@ -13,9 +13,11 @@
       <button @click="inputContent">7</button>
       <button @click="inputContent">8</button>
       <button @click="inputContent">9</button>
-      <button @click="ok" class="ok">保存</button>
+      <button @click="inputContent">100</button>
+      <button @click="inputContent">1000</button>
       <button @click="inputContent" class="zero">0</button>
       <button @click="inputContent">.</button>
+      <button @click="ok" class="ok">保存</button>
     </div>
   </div>
 </template>
@@ -78,58 +80,32 @@ export default class NumberPad extends Vue {
     @extend %innerShadow;
     font-size: 36px;
     font-family: Consolas, monospace;
-    padding: 9px 16px;
+    padding: 0 16px;
     text-align: right;
-    color: red;
+    color: rgb(235,88,96);
+    background: #f5f5f5;
   }
 
   .buttons {
     @extend %clearFix;
-
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+    grid-template-rows: repeat(4,56px);
+    background: #f5f5f5;
+    padding: 6px 10px;
     > button {
-      width: 25%;
-      height: 64px;
-      float: left;
-      background: transparent;
+      font-size: 18px;
+      background: white;
+      margin: 6px;
       border: none;
-
-      &.ok {
-        height: 64*2px;
-        float: right;
+      border-radius: 10px;
+      &:nth-child(16) {
+        background: rgb(235,88,96);
+        color: white;
       }
-
-      &.zero {
-        width: 25*2%;
-      }
-
-      $bg: #f2f2f2;
-
-      &:nth-child(1) {
-        background: $bg;
-      }
-
-      &:nth-child(2), &:nth-child(5) {
-        background: darken($bg, 4%);
-      }
-
-      &:nth-child(3), &:nth-child(6), &:nth-child(9) {
-        background: darken($bg, 4*2%);
-      }
-
-      &:nth-child(4), &:nth-child(7), &:nth-child(10) {
-        background: darken($bg, 4*3%);
-      }
-
-      &:nth-child(8), &:nth-child(11), &:nth-child(13) {
-        background: darken($bg, 4*4%);
-      }
-
-      &:nth-child(14) {
-        background: darken($bg, 4*5%);
-      }
-
-      &:nth-child(12) {
-        background: darken($bg, 4*6%);
+      &:nth-child(15) {
+        font-size: larger;
+        font-weight: bolder;
       }
     }
   }
