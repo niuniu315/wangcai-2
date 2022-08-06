@@ -116,7 +116,7 @@ footer{
   bottom: 30px;
   left: 50%;
   background: dodgerblue;
-  margin-left: -12px;
+  margin-left: -20px;
   padding: 10px 15px;
   border-radius: 50%;
 }
