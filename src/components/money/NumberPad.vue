@@ -17,7 +17,7 @@
       <button @click="inputContent">1000</button>
       <button @click="inputContent" class="zero">0</button>
       <button @click="inputContent">.</button>
-      <button @click="ok" class="ok">保存</button>
+      <button id="ok" @click="ok" class="ok">保存</button>
     </div>
   </div>
 </template>

@@ -14,7 +14,8 @@
           <Icon name="主页" class="home"/>
         </router-link>
         <Tabs :data-source="recordTypeList"
-              :value.sync="record.type"/>
+              :value.sync="record.type"
+        />
         <router-link to="/labels">
           <Icon class="add" name="add"/>
         </router-link>
