@@ -9,7 +9,9 @@
     </div>
     <Tags @update:value="record.tags = $event"/>
     <div class="clearfix tabss" >
-      <div class="tabs-a"></div>
+      <router-link to="/statistics" class="item" active-class="selected">
+        <Icon name="主页" class="home"/>
+      </router-link>
       <Tabs :data-source="recordTypeList"
             :value.sync="record.type"/>
       <router-link to="/labels">
@@ -75,15 +77,18 @@ export default class Money extends Vue {
   display: flex;
   flex-direction: column-reverse;
 }
+.tabss> a > .home{
+  position: relative;
+  right: -14px;
+  background: dodgerblue;
+}
 
 .notes {
   padding: 12px 0;
   background: #f5f5f5;
 
 }
-.tabs-a{
-  width: 20px;
-}
+
 .clearfix{
   border-bottom: 1px solid black;
 }
