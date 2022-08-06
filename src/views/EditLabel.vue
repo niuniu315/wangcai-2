@@ -6,6 +6,7 @@
       <span class="rightIcon"></span>
       <!--      tip:多加一个标签好平均布局-->
     </div>
+    <div class="tip">点击修改标签</div>
     <div class="form-wrapper">
       <FormItem field-name="标签名"
                 placeholder="请输入标签名"
@@ -65,6 +66,11 @@ export default class EditLabel extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.tip {
+  font-weight: lighter;
+  font-size: smaller;
+  text-align: center;
+}
 .navBar {
   text-align: center;
   font-size: 16px;

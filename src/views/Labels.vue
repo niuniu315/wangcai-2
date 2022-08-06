@@ -1,5 +1,14 @@
 <template>
-  <Layout>
+  <div>
+    <div class="navBar">
+      <Icon class="leftIcon" name="left" @click="goBack"/>
+      <span class="title">标签页</span>
+      <router-link to="/statistics" class="item" active-class="selected">
+        <Icon name="主页" class="home"/>
+      </router-link>
+      <!--      tip:多加一个标签好平均布局-->
+    </div>
+    <div class="tip">点击编辑标签</div>
     <div class="tags">
       <router-link class="tag"
                    v-for="tag in tags"
@@ -12,7 +21,7 @@
     <div class="createTag-wrapper">
       <Button class="createTag" @click="addTag">新建标签</Button>
     </div>
-  </Layout>
+  </div>
 </template>
 
 <script lang="ts">
@@ -29,6 +38,10 @@ export default class Labels extends mixins(TagHelper) {
     return this.$store.state.tagList;
   }
 
+  goBack() {
+    this.$router.back();
+  }
+
   beforeCreate() {
     this.$store.commit('fetchTags');
   }
@@ -36,8 +49,38 @@ export default class Labels extends mixins(TagHelper) {
 </script>
 
 <style lang="scss" scoped>
+
+.navBar a > .home {
+  width: 24px;
+  height: 24px;
+  background: dodgerblue;
+  color: white;
+  border-radius: 50%;
+}
+
+.tip {
+  font-weight: lighter;
+  font-size: smaller;
+  text-align: center;
+}
+
+.navBar {
+  text-align: center;
+  font-size: 16px;
+  padding: 12px 16px;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > .leftIcon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 .tags {
-  background: white;
+  background: #f5f5f5;
   font-size: 16px;
   padding-left: 16px;
 
