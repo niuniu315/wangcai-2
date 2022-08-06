@@ -1,24 +1,26 @@
 <template>
-  <Layout class-prefix="layout">
-    <NumberPad @update:value="onUpdateAmount"
-               @submit="saveRecord"/>
-    <div class="notes">
-      <FormItem field-name=""
-                placeholder="点此输入备注..."
-                :value.sync="record.notes"/>
+  <div class="layout-wrapper">
+    <div class="layout-content">
+      <NumberPad @update:value="onUpdateAmount"
+                 @submit="saveRecord"/>
+      <div class="notes">
+        <FormItem field-name=""
+                  placeholder="点此输入备注..."
+                  :value.sync="record.notes"/>
+      </div>
+      <Tags @update:value="record.tags = $event" class="tags"/>
+      <div class="clearfix tabss">
+        <router-link to="/statistics" class="item" active-class="selected">
+          <Icon name="主页" class="home"/>
+        </router-link>
+        <Tabs :data-source="recordTypeList"
+              :value.sync="record.type"/>
+        <router-link to="/labels">
+          <Icon class="add" name="add"/>
+        </router-link>
+      </div>
     </div>
-    <Tags @update:value="record.tags = $event"/>
-    <div class="clearfix tabss" >
-      <router-link to="/statistics" class="item" active-class="selected">
-        <Icon name="主页" class="home"/>
-      </router-link>
-      <Tabs :data-source="recordTypeList"
-            :value.sync="record.type"/>
-      <router-link to="/labels">
-        <Icon class="add" name="add"/>
-      </router-link>
-    </div>
-  </Layout>
+  </div>
 </template>
 
 <script lang="ts">
@@ -73,11 +75,23 @@ export default class Money extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.layout-content {
+  overflow: auto;
+  flex-grow: 1;
+}
+
 ::v-deep .layout-content {
   display: flex;
   flex-direction: column-reverse;
 }
-.tabss> a > .home{
+
+.tabss > a > .home {
   position: relative;
   right: -14px;
   background: dodgerblue;
@@ -89,15 +103,17 @@ export default class Money extends Vue {
 
 }
 
-.clearfix{
+.clearfix {
   border-bottom: 1px solid black;
 }
-.tabss{
+
+.tabss {
   background: white;
   display: flex;
   justify-content: center;
 }
-a >.icon{
+
+a > .icon {
   background: #333333;
   color: white;
   border-radius: 50%;
