@@ -110,11 +110,8 @@ export default class Statistics extends Vue {
   background: white;
 
   &.selected {
-    background: #C4C4C4;
-    color: red;
 
     &::after {
-      display: none;
     }
   }
 }
