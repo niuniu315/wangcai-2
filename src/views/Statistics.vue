@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <div>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
     <div>
       <ol v-if="groupedList.length > 0">
@@ -18,7 +18,12 @@
       </ol>
       <div v-else class="noResult">无记账记录</div>
     </div>
-  </Layout>
+    <footer>
+      <router-link to="/money">
+        <Icon name="add"/>
+      </router-link>
+    </footer>
+  </div>
 </template>
 
 <script lang="ts">
@@ -106,6 +111,18 @@ export default class Statistics extends Vue {
 </script>
 
 <style scoped lang="scss">
+footer{
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  background: dodgerblue;
+  margin-left: -12px;
+  padding: 10px 15px;
+  border-radius: 50%;
+}
+.icon{
+  color: white;
+}
 ::v-deep .type-tabs-item {
   background: white;
 
