@@ -4,7 +4,7 @@
       <li v-for="tag in tagList" :key="tag.id"
           :class="{selected: selectedTags.indexOf(tag) >= 0}"
           @click="toggle(tag)">
-        <Icon name="交通" ></icon>
+        <Icon :name="tag.name" ></icon>
         {{ tag.name }}
       </li>
     </ul>
