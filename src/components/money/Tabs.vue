@@ -33,12 +33,12 @@ export default class Tabs extends Vue {
 
   select(item: DataSourceType) {
     this.$emit('update:value', item.value);
-    if (item.value === '+'){
-     const button= document.querySelectorAll('.ok')[0]
-      button.style.background = "green"
-    }else {
-      const button1= document.querySelectorAll('.ok')[0]
-      button1.style.background = "rgb(235,88,96)"
+    if (item.value === '+') {
+      const button = document.querySelectorAll('.ok')[0] as HTMLElement;
+      button.style.background = 'green';
+    } else {
+      const button1 = document.querySelectorAll('.ok')[0] as HTMLElement;
+      button1.style.background = 'rgb(235,88,96)';
 
     }
   }
@@ -52,6 +52,7 @@ export default class Tabs extends Vue {
   font-size: 16px;
   width: 120px;
   margin: 0 auto;
+
   &-item {
     width: 50%;
     height: 64px;
@@ -71,6 +72,7 @@ export default class Tabs extends Vue {
     }
   }
 }
+
 .earning {
   background: white;
 }
