@@ -9,6 +9,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    output: '0',
+    notes: '',
     recordList: [],
     createRecordError: null,
     createTagError: null,
@@ -63,6 +65,9 @@ const store = new Vuex.Store({
     saveRecords(state) {
       window.localStorage.setItem('recordList',
         JSON.stringify(state.recordList));
+      state.output = '0';
+      console.log(state.output);
+      state.notes = '';
     },
 
     fetchTags(state) {
