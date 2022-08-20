@@ -70,6 +70,7 @@ export default class EditLabel extends Vue {
   font-weight: lighter;
   font-size: smaller;
   text-align: center;
+  margin-top: 8px;
 }
 .navBar {
   text-align: center;
@@ -83,12 +84,12 @@ export default class EditLabel extends Vue {
   > .leftIcon {
     width: 24px;
     height: 24px;
+    color: red;
   }
 }
 
 .form-wrapper {
   background: #f5f5f5;
-
   margin-top: 8px;
 }
 
@@ -96,5 +97,11 @@ export default class EditLabel extends Vue {
   text-align: center;
   padding: 16px;
   margin-top: 44-16px;
+}
+.title{
+  color: gray;
+  font-size: 24px;
+  position: relative;
+  left: -5px;
 }
 </style>
