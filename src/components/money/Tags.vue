@@ -4,7 +4,7 @@
       <li v-for="tag in tagList" :key="tag.id"
           :class="{selected: selectedTags.indexOf(tag) >= 0}"
           @click="toggle(tag)">
-        <Icon :name="tag.name" ></icon>
+        <Icon :name="tag.name"/>
         {{ tag.name }}
       </li>
     </ul>
@@ -51,24 +51,23 @@ export default class Tags extends mixins(TagHelper) {
   background: white;
 
   > .current {
-    display: flex;
-    flex-wrap: wrap;
-
+    margin: 5px auto;
+    width: 350px;
 
     > li {
       $bg: rgb(237, 243, 250);
       border-radius: 12px;
-      padding: 0 16px;
-      margin-right: 10px;
-      margin-top: 4px;
+      margin: 7px;
+      padding: 5px;
+      float: left;
       display: flex;
       flex-direction: column;
-      text-align: center;
 
       &.selected {
         color: rgb(54, 146, 249);
+
         > .icon {
-          background: rgb(234,243,253);
+          background: rgb(234, 243, 253);
           color: rgb(54, 146, 249);
         }
       }
@@ -80,7 +79,7 @@ ul > li > .icon {
   width: 32px;
   height: 32px;
   padding: 5px;
-  color: rgb(124,137,153);
+  color: rgb(124, 137, 153);
   border-radius: 50px;
 }
 

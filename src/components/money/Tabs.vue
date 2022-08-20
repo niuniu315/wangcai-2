@@ -39,7 +39,6 @@ export default class Tabs extends Vue {
     } else {
       const button1 = document.querySelectorAll('.ok')[0] as HTMLElement;
       button1.style.background = 'rgb(235,88,96)';
-
     }
   }
 }
