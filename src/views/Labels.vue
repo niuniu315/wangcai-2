@@ -2,7 +2,7 @@
   <div>
     <div class="navBar">
       <Icon class="leftIcon" name="left" @click="goBack"/>
-      <span class="title">标签页</span>
+      <span class="title">标签列表</span>
       <router-link to="/statistics" class="item" active-class="selected">
         <Icon name="主页" class="home"/>
       </router-link>
@@ -76,6 +76,7 @@ export default class Labels extends mixins(TagHelper) {
   > .leftIcon {
     width: 24px;
     height: 24px;
+    color: red;
   }
 }
 
@@ -91,10 +92,14 @@ export default class Labels extends mixins(TagHelper) {
     justify-content: space-between;
     border-bottom: 1px solid #e6e6e6;
 
+    > span {
+      color: dodgerblue;
+    }
+
     svg {
       width: 18px;
       height: 18px;
-      color: #666;
+      color: dodgerblue;
       margin-right: 16px;
     }
   }
@@ -113,5 +118,9 @@ export default class Labels extends mixins(TagHelper) {
     padding: 16px;
     margin-top: 44-16px;
   }
+}
+.title{
+  color: gray;
+  font-size: 24px;
 }
 </style>
