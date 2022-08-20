@@ -72,6 +72,17 @@ const store = new Vuex.Store({
         store.commit('createTag', '餐饮');
         store.commit('createTag', '住房');
         store.commit('createTag', '交通');
+        store.commit('createTag', '借入');
+        store.commit('createTag', '借出');
+        store.commit('createTag', '利息');
+        store.commit('createTag', '医疗');
+        store.commit('createTag', '奖金');
+        store.commit('createTag', '娱乐');
+        store.commit('createTag', '学习');
+        store.commit('createTag', '投资');
+        store.commit('createTag', '红包');
+        store.commit('createTag', '烟酒');
+        store.commit('createTag', '零食');
       }
     },
     createTag(state, name: string) {
