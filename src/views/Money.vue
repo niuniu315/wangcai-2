@@ -70,6 +70,7 @@ export default class Money extends Vue {
     }
     this.record.notes = '';
     this.$store.commit('createRecord', this.record);
+    this.$router.go(0);
   }
 
 

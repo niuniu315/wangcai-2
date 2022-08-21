@@ -15,7 +15,7 @@ body {
   color: #333;
   font-family: $font-hei;
   line-height: 1.5;
-  max-width: 500px;
+  max-width: 445px;
   margin: 0 auto;
 }
 

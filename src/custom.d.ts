@@ -7,8 +7,6 @@ type RecordType = {
 }
 
 type RootState = {
-  output: string;
-  notes: string;
   recordList: RecordType[],
   createRecordError: Error | null,
   createTagError: Error | null,
