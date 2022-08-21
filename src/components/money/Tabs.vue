@@ -33,13 +33,7 @@ export default class Tabs extends Vue {
 
   select(item: DataSourceType) {
     this.$emit('update:value', item.value);
-    if (item.value === '+') {
-      const button = document.querySelectorAll('.ok')[0] as HTMLElement;
-      button.style.background = 'green';
-    } else {
-      const button1 = document.querySelectorAll('.ok')[0] as HTMLElement;
-      button1.style.background = 'rgb(235,88,96)';
-    }
+
   }
 }
 </script>

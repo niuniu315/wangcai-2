@@ -15,6 +15,7 @@
         </router-link>
         <Tabs :data-source="recordTypeList"
               :value.sync="record.type"
+              @update:value="onUpdateType"
         />
         <router-link to="/labels">
           <Icon class="add" name="add"/>
@@ -52,6 +53,16 @@ export default class Money extends Vue {
 
   onUpdateAmount(value: string) {
     this.record.amount = parseFloat(value); // 将类型转换成string
+  }
+
+  onUpdateType(value: string) {
+    if (value === '+') {
+      const button = document.querySelectorAll('.ok')[0] as HTMLElement;
+      button.style.background = 'green';
+    } else {
+      const button1 = document.querySelectorAll('.ok')[0] as HTMLElement;
+      button1.style.background = 'rgb(235,88,96)';
+    }
   }
 
   created() {
