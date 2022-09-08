@@ -10,7 +10,7 @@
       </div>
       <div class="createAt">
         <FormItem field-name="日期"
-                  type="datetime-local"
+                  type="date"
                   placeholder="点此输入日期"
                   :value.sync="record.createdAt"/>
       </div>
