@@ -4,6 +4,7 @@ type RecordType = {
   type: string
   amount: number
   createdTime?: string // ?问号表示你管我有没有这个类型
+  createdAt: string
 }
 
 type RootState = {

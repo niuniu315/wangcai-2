@@ -2,7 +2,7 @@
   <div>
     <label class="formItem">
       <span class="name">{{ this.fieldName }}</span>
-      <input type="text"
+      <input :type="type ||'text'"
              :value="value"
              @input="onValueChanged($event.target.value)"
              :placeholder="placeholder">
@@ -19,6 +19,7 @@ export default class FormItem extends Vue {
   @Prop({default: ''}) readonly value!: string;
   @Prop({required: true}) fieldName!: string;  // 必须有一个字符串  别管我有没有默认值
   @Prop({required: true}) placeholder!: string;
+  @Prop() type?: string;
 
   // 监听获取value值
   onValueChanged(value: string) {
@@ -28,14 +29,16 @@ export default class FormItem extends Vue {
 </script>
 
 <style lang="scss" scoped>
-div{
+div {
 
 }
+
 .formItem {
   font-size: 14px;
   padding-left: 16px;
   display: flex;
   align-items: center;
+
   .name {
     padding-right: 16px;
   }
