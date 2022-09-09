@@ -68,6 +68,10 @@ export default class Statistics extends Vue {
 
   get x() {
     return {
+      grid: {
+        left: 0,
+        right: 0,
+      },
       xAxis: {
         type: 'category',
         data: [
