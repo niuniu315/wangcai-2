@@ -1,7 +1,9 @@
 <template>
   <div>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
-    <Chart :options="x"/>
+    <div class="chart-wrapper" ref="chartWrapper">
+      <Chart class="chart" :options="x"/>
+    </div>
     <div>
       <ol v-if="groupedList.length > 0">
         <li v-for="(group,index) in groupedList" :key="index">
@@ -58,6 +60,10 @@ export default class Statistics extends Vue {
     } else {
       return day.format(('YYYY年M月D日'));
     }
+  }
+
+  mounted() {
+    (this.$refs.chartWrapper as HTMLDivElement).scrollLeft = 9999;
   }
 
   get x() {
@@ -140,7 +146,7 @@ export default class Statistics extends Vue {
 </script>
 
 <style scoped lang="scss">
-footer{
+footer {
   position: fixed;
   bottom: 30px;
   left: 50%;
@@ -149,9 +155,11 @@ footer{
   padding: 10px 15px;
   border-radius: 50%;
 }
-.icon{
+
+.icon {
   color: white;
 }
+
 ::v-deep .type-tabs-item {
   background: white;
 
@@ -193,5 +201,13 @@ footer{
 .noResult {
   padding: 16px;
   text-align: center;
+}
+
+.chart {
+  width: 430%;
+
+  &-wrapper {
+    overflow: auto;
+  }
 }
 </style>
