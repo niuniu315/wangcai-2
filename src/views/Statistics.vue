@@ -63,7 +63,8 @@ export default class Statistics extends Vue {
   }
 
   mounted() {
-    (this.$refs.chartWrapper as HTMLDivElement).scrollLeft = 9999;
+    const div = this.$refs.chartWrapper as HTMLDivElement;
+    div.scrollLeft = div.clientWidth;
   }
 
   get x() {
@@ -80,7 +81,7 @@ export default class Statistics extends Vue {
           '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
         ],
         axisTick: {alignWithLabel: true},
-        axisLine: {lineStyle: {color: '#666'}}
+        axisLine: {lineStyle: {color: 'red'}}
       },
       yAxis: {
         type: 'value',
@@ -89,7 +90,7 @@ export default class Statistics extends Vue {
       series: [{
         symbol: 'circle',
         symbolSize: 12,
-        itemStyle: {borderWidth: 1, color: '#666', borderColor: '#666'},
+        itemStyle: {borderWidth: 1, color: 'dodgerblue', borderColor: 'dodgerblue'},
         data: [
           820, 932, 901, 934, 1290, 1330, 1320,
           820, 932, 901, 934, 1290, 1330, 1320,
