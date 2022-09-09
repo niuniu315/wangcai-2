@@ -212,6 +212,9 @@ footer {
 
   &-wrapper {
     overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 </style>
