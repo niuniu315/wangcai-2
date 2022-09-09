@@ -65,10 +65,8 @@ export default class Statistics extends Vue {
   }
 
   mounted() {
-    const div = this.$refs.chartWrapper as HTMLDivElement;
-    div.scrollLeft = div.clientWidth;
+    (this.$refs.chartWrapper as HTMLDivElement).scrollLeft = 9999;
   }
-
   get y() {
     const today = new Date();
     const array = [];
@@ -76,8 +74,8 @@ export default class Statistics extends Vue {
       const dateString = day(today)
           .subtract(i, 'day')
           .format('YYYY-MM-DD');
-      const found = _.find(this.recordList, {createdAt: dateString});
-      array.push({date: dateString, value: found ? found.amount : 0});
+      const found = _.find(this.groupedList, {title: dateString});
+      array.push({date: dateString, value: found ? found.total : 0});
     }
     //将时间排序
     array.sort((a, b) => {
@@ -94,7 +92,8 @@ export default class Statistics extends Vue {
 
   get x() {
     const keys = this.y.map(item => item.date);
-    const value = this.y.map(item => item.value);
+    const values = this.y.map(item => item.value);
+
     return {
       grid: {
         left: 0,
@@ -119,7 +118,7 @@ export default class Statistics extends Vue {
         symbol: 'circle',
         symbolSize: 12,
         itemStyle: {borderWidth: 1, color: 'dodgerblue', borderColor: 'dodgerblue'},
-        data: value,
+        data: values,
         type: 'line'
       }],
       tooltip: {
