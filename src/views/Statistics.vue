@@ -1,6 +1,7 @@
 <template>
   <div>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
+    <Chart/>
     <div>
       <ol v-if="groupedList.length > 0">
         <li v-for="(group,index) in groupedList" :key="index">
@@ -33,9 +34,10 @@ import Tabs from '@/components/money/Tabs.vue';
 import recordTypeList from '@/constants/recordTypeList';
 import dayjs from 'dayjs';
 import clone from '@/lib/clone';
+import Chart from '@/components/Chart.vue';
 
 @Component({
-  components: {Tabs},
+  components: {Chart, Tabs},
 })
 export default class Statistics extends Vue {
   tagString(tags: Tag[]) {
